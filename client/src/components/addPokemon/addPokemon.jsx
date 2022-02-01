@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import { addPokemons, getPokemonsTypes } from '../../actions/actions';
+import { addPokemons, getPokemonsTypes, clear } from '../../actions/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import validator from './validator';
 import NavBar from '../navBar/navBar.jsx';
 import './addPokemon.css';
+import PokeCreated from '../createdSucesfully/pokeCreated';
 
 export default function NewPokemon() {
     let dispatch = useDispatch();
@@ -49,12 +50,17 @@ export default function NewPokemon() {
         });
     }
 
+    const pokemonCreated = () => {
+        setTimeout(() => dispatch(clear()), 4000)
+        };
+
         return(
             <div>
             <NavBar />
             <div className='form-container'>
+            <form className='create-pokemon' onSubmit={handleSubmit}>
             <h2>Crea tu propio Pokemon</h2>
-            <form className='create-pokemon'>
+            <div className='form'>
                 <div className='pokemon-params'>
                     <p>Nombre:</p>
                     <input 
@@ -62,11 +68,15 @@ export default function NewPokemon() {
                     placeholder='Ingresa un nombre...' 
                     name='name' 
                     value={input.name} 
-                    onChange={handleInputChange} >
+                    onChange={handleInputChange}
+                    required
+                    >
                     </input>
                 </div>
                 {errors.name && (
-                    <p>{errors.name}</p>
+                    <div className='errors'>
+                    <div className='namee'>{errors.name}</div>
+                    </div>
                     )}
                 <div className='pokemon-params'>
                     <p>Ataque:</p>
@@ -76,11 +86,14 @@ export default function NewPokemon() {
                     name='attack' 
                     max='350' 
                     value={input.attack} 
-                    onChange={handleInputChange} >
+                    onChange={handleInputChange} 
+                    required>
                     </input>
                 </div>
                 {errors.attack && (
-                    <p>{errors.attack}</p>
+                    <div className='errors'>
+                    <div className='attack'>{errors.attack}</div>
+                    </div>
                     )}
                 <div className='pokemon-params'>
                     <p>Defensa:</p>
@@ -90,11 +103,14 @@ export default function NewPokemon() {
                     name='defense' 
                     max='350' 
                     value={input.defense} 
-                    onChange={handleInputChange} >
+                    onChange={handleInputChange}
+                    required >
                     </input>
                 </div>
                 {errors.defense && (
-                    <p>{errors.defense}</p>
+                    <div className='errors'>
+                    <div className='defense'>{errors.defense}</div>
+                    </div>
                     )}
                 <div className='pokemon-params'>
                     <p>Velocidad:</p>
@@ -104,11 +120,14 @@ export default function NewPokemon() {
                     name='speed' 
                     max='350' 
                     value={input.speed} 
-                    onChange={handleInputChange} >
+                    onChange={handleInputChange}
+                    required >
                     </input>
                 </div>
                 {errors.speed && (
-                    <p>{errors.speed}</p>
+                    <div className='errors'>
+                    <div className='speed'>{errors.speed}</div>
+                    </div>
                     )}
                 <div className='pokemon-params'>
                     <p>Salud:</p>
@@ -118,11 +137,14 @@ export default function NewPokemon() {
                     name='health' 
                     max='350' 
                     value={input.health} 
-                    onChange={handleInputChange} >
+                    onChange={handleInputChange} 
+                    required>
                     </input>
                 </div>
                 {errors.health && (
-                    <p>{errors.health}</p>
+                    <div className='errors'>
+                    <div className='health'>{errors.health}</div>
+                    </div>
                     )}
                 <div className='pokemon-params'>
                     <p>Altura:</p>
@@ -132,11 +154,14 @@ export default function NewPokemon() {
                     name='height' 
                     max='350' 
                     value={input.height} 
-                    onChange={handleInputChange} >
+                    onChange={handleInputChange} 
+                    required>
                     </input>
                 </div>
                 {errors.height && (
-                    <p>{errors.height}</p>
+                    <div className='errors'>
+                    <div className='height'>{errors.height}</div>
+                    </div>
                     )}
                 <div className='pokemon-params'>
                     <p>Peso:</p>
@@ -146,11 +171,14 @@ export default function NewPokemon() {
                     name='weight' 
                     max='350' 
                     value={input.weight} 
-                    onChange={handleInputChange} >
+                    onChange={handleInputChange} 
+                    required>
                     </input>
                 </div>
                 {errors.weight && (
-                    <p>{errors.weight}</p>
+                    <div className='errors'>
+                    <div className='weight'>{errors.weight}</div>
+                    </div>
                     )}
                 <div className='pokemon-types'>
                     <p>Tipos:</p>
@@ -158,7 +186,8 @@ export default function NewPokemon() {
                         <select 
                         value={input.type1} 
                         name='type1' 
-                        onChange={handleInputChange} >
+                        onChange={handleInputChange} 
+                        required>
                             <option value='Primer tipo'>Primer tipo</option>
                             {
                                 pokeTypes.map( x => 
@@ -169,6 +198,7 @@ export default function NewPokemon() {
                     </div>
                     <div className='option-types'>
                         <select 
+                        className='special-select'
                         value={input.type2} 
                         name='type2' 
                         onChange={handleInputChange} >
@@ -181,45 +211,45 @@ export default function NewPokemon() {
                         </select>
                     </div>
                 </div>
-                <div className='pokemon-image'>
+                <div className='pokemon-params pokemon-image'>
+                    <p>Url:</p>
                     <input 
                     type='text' 
                     name='image' 
                     value={input.image} 
                     onChange={handleInputChange} >
                     </input>
-                    <p className='pokemon-image-description'>Aqui puedes ingresar una imagen en formatos compatibles (.jpg, .svg, .jpeg, etc) tanto desde una URL como desde tu dispositivo.</p>
                 </div>
-                <button className='submit-pokemon' onClick={handleSubmit}>Crear Pokemon</button>
+                <div className='square'>
+                    {input.image ? (
+                        <img
+                        src={input.image}
+                        alt='imagen'></img>
+                    ) : (
+                        <div></div>
+                    )}
+                </div>
+            </div>
+                {Object.keys(errors).length !==0 ? (
+                    <button 
+                    disabled='true'
+                    onClick={pokemonCreated}
+                    className='submit-pokemon-error'>Crear Pokemon</button>
+                ) : (
+                    <button 
+                    className='submit-pokemon'
+                    onClick={pokemonCreated}>Crear Pokemon</button>
+                )}
+                {pokeCreated && <PokeCreated />}
             </form>
             </div>
-
-           
-
+            
             </div>
         )
 };
 
-/* 
-Ejemplo de mensaje de Pokemon Created 
-
- {Object.keys(errors).length !== 0 ? (
-              <button
-                disabled="true"
-                className={style.btnError}
-                onClick={finishedForm}
-              >
-                <p>Complete the form</p>
-              </button>
-            ) : (
-              <button className={style.btn} onClick={finishedForm}>
-                Create
-              </button>
-            )}
-            {isCreated && <Modal />}
 
 
 
 
 
-*/

@@ -23,6 +23,26 @@ describe('Pokemon routes', () => {
   });
 });
 
+describe("GET /pokemons/:id", () => {
+  it("GET response with 200 if it finds an id", function () {
+    agent.get("/pokemons/25").expect(function (res) {
+      expect(res.status).equal(200);
+    });
+  });
+});
 
+describe("GET /pokemons?name=", () => {
+  it("GET response with 200 if it find a pokemon with the name provided", function () {
+    agent.get("/pokemons?name=charmander").expect(function (res) {
+      expect(res.status).equal(200);
+    });
+  });
+});
 
-//Al final realizar los tests
+describe("GET /types", () => {
+  it("GET response with 200 if it finds all the types of pokemon", function () {
+    agent.get("/types").expect(function (res) {
+      expect(res.status).equal(2000);
+    });
+  });
+});

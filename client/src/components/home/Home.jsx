@@ -1,5 +1,4 @@
 import  NavBar from '../navBar/navBar.jsx';
-import FilterBar from '../filterBar/filterBar';
 import AllCards from '../allCards/AllCards';
 import './Home.css';
 
@@ -8,9 +7,8 @@ export default function Home() {
     return (
         <div>
             <NavBar />
-            <FilterBar />
             <div>
-                <div>
+                <div className='home-background'>
                     {<AllCards/>}
                 </div>
             </div>

@@ -4,6 +4,7 @@ import Home from './components/home/Home';
 import PokemonDetail from './components/details/Details';
 import NewPokemon from './components/addPokemon/addPokemon';
 import LandingPage from './components/landingPage/landingPage';
+import NavBar from './components/navBar/navBar';
 
 function App() {
   return (

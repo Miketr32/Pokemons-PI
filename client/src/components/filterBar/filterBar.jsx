@@ -13,7 +13,8 @@ export default function FilterBar() {
     const [originOrder, setOriginOrder] = useState('');
     const [sortOrder, setSortOrder] = useState('');
     const [sortForce, setSortForce] = useState('');
-
+    const [filterBar, setFilterBar] = useState(false);                     // 
+    
     const orderByType = (e) => {                                        // Filtrado por tipo
         setTypeOrder(e.target.value)
         if(e.target.value !== 'clearTypes' && e.target.value !== null){ 
@@ -62,18 +63,34 @@ export default function FilterBar() {
         dispatch(getPokemonsTypes());
     }, [dispatch]);
 
+    if(!filterBar){
+        return (
+            <nav>
+                <div className="centerBar background">
+                        <button className="Create" onClick={() => setFilterBar(true)}>Filtros</button>
+                    <Link to='/addPokemon'>
+                        <button className="Filter">Crea tu propio Pokemon</button>{/* Al hacer click en este boton las option seran visibles */}
+                    </Link>
+                </div>
+            </nav>
+        )} 
+    else {
     return (
         <nav>
-            <div>
-            <button></button>  {/* Al hacer click en este boton las option seran visibles */}
-                <div>
+            <div className="centerBar background">
+                    <button className="Create" onClick={() => setFilterBar(false)}>Ocultar</button>
+                <Link to='/addPokemon'>
+                    <button className="Filter">Crea tu propio Pokemon</button>{/* Al hacer click en este boton las option seran visibles */}
+                </Link>
+            </div>
+                <div className="filterBar background">
                 <select 
                 className='select' 
                 value={typeOrder} 
                 onChange={orderByType}>
                     <option 
                     name='types' 
-                    value="clearTypes">Tipo:</option>
+                    value="clearTypes">Filtrar por tipo:</option>
                     {allTypes && allTypes.map( m =>
                         <option name={m.name} key={m.id} >{m.name}</option>
                     )}
@@ -82,7 +99,7 @@ export default function FilterBar() {
                 className='select' 
                 value={originOrder} 
                 onChange={orderByOrigin}>
-                    <option value='clearOrigin'>Origen:</option>
+                    <option value='clearOrigin'>Filtrar por origen:</option>
                     <option value='false'>Api</option>
                     <option value='true'>Base de datos</option>
                 </select>
@@ -90,7 +107,7 @@ export default function FilterBar() {
                 className='select' 
                 value={sortOrder} 
                 onChange={orderByAlph}>
-                    <option value='clearAlp'>Ord.Alf:</option>
+                    <option value='clearAlp'>Filtrar por Ord.Alf:</option>
                     <option value='Asc'>A - Z</option>
                     <option value='Desc'>Z - A</option>
                 </select>
@@ -98,19 +115,13 @@ export default function FilterBar() {
                 className='select' 
                 value={sortForce} 
                 onChange={orderByForce}>
-                    <option value="clearAt">Ataque:</option>
+                    <option value="clearAt">Filtrar por nivel de ataque:</option>
                     <option value='forceAsc'>Mayor(+)</option>
                     <option value='forceDesc'>Menor(-)</option>
                 </select>
                 </div>
-            </div>
-            <div>
-                <Link to='/addPokemon'>
-                    <button>Crea tu propio Pokemon</button>
-                </Link>
-            </div>
         </nav>
-    )
+    )}
 };
 
 

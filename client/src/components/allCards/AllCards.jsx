@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import PokeCard from "../pokeCard/pokeCard";
+import FilterBar from "../filterBar/filterBar";
 import { getPokemons, getPokemonsTypes } from "../../actions/actions";
+import './AllCards.css';
+import Loading from "../loading/loading";
+import NotFound from "../notFound/NotFound";
+import NavBar from "../navBar/navBar";
 
 export default function AllCards() {
     let dispatch = useDispatch();
@@ -14,19 +19,23 @@ export default function AllCards() {
 
     const lastPoke = countPoke * pagePoke; // 1 * 12 = 12
     const firstPoke = lastPoke - pagePoke; // 12 - 12 = 0
-    const pages = Math.ceil(allPokemon.length / lastPoke); // Indicador de la pagina actual
+    const pages = Math.ceil(allPokemon.length / pagePoke); // Indicador de la pagina actual
 
-    const pokesFiltered = useSelector((state) => state.pokemonsFilter? state.pokemonsFilter.slice(firstPoke, lastPoke): false); // Almacena la cantidad maxima por pagina
+    const pokesFiltered = useSelector((state) => state.pokemonsFilter ? state.pokemonsFilter.slice(firstPoke, lastPoke) : false); // Almacena la cantidad maxima por pagina
 
     const back = () => {
         if(countPoke !== 1 ){
             setCountPoke(countPoke -1 );
-        }};
+        }
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    };
 
     const next = () => {
         if(countPoke !== pages) {
             setCountPoke(countPoke + 1);
-        }};
+        }
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    };
 
     if(countPoke > pages) {
         back();
@@ -36,18 +45,24 @@ export default function AllCards() {
         dispatch(getPokemons());
         dispatch(getPokemonsTypes());
     },[])
+    console.log(pokesFiltered)
 
     if(!pokesFiltered){ 
         return(
             <div>
-                <h1>No se ha encontrado</h1>
+                <NavBar />
+                <div>
+                    <NotFound />
+                </div>
+
             </div>
         )
     }
     else if(pokesFiltered.length){
     return (
         <div>
-        <div>
+            <FilterBar />
+        <div className="AllCards">
          {pokesFiltered && pokesFiltered.map((p) => (
              <PokeCard 
                 name={p.name}
@@ -62,17 +77,17 @@ export default function AllCards() {
              />
          ))}
          </div>
-            <div>
-                <button onClick={back}>Anterior</button>
+            <div className="pagination">
+                <button onClick={back} className="pagination-button a">Anterior</button>
                 <p>{countPoke} / {pages}</p>
-                <button onClick={next}>Proximo</button>
+                <button onClick={next} className="pagination-button p">Proximo</button>
             </div>
         </div>
     )}
     else{
         return (
             <div>
-                <h4>Cargando</h4>
+                <Loading />
             </div>
         )}}
 

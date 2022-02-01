@@ -26,7 +26,7 @@ export default function rootReducer(state = initialState, action) {
             const nameSearched = state.allPokemons.filter((x) => {
                 return x.name.includes(action.payload)
             });
-            if(nameSearched){
+            if(nameSearched.length !== 0){
             return {
                 ...state,
                 pokemonsFilter: nameSearched
@@ -103,7 +103,7 @@ export default function rootReducer(state = initialState, action) {
             return {
             ...state,
             pokemonsFilter: state.allPokemons,
-            addedPokemon: false,
+            newPokemons: false,
             };
 
         default:

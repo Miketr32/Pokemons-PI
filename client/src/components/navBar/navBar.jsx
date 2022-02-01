@@ -3,7 +3,8 @@ import { getPokemons, getPokemonsNames } from '../../actions/actions';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import './navBar.css';
-// Debo buscar e importar las imagenes del logo y del search input
+import Logo from '../../Images/Logo.gif'
+
 
 export default function NavBar() {
     const dispatch = useDispatch();
@@ -24,15 +25,13 @@ export default function NavBar() {
         <nav className='navBar'>
             <div>
                 <Link to={'/home'}>
-                    <button className='homeButton' type='button' onClick={() => dispatch(getPokemons())}>
-                        Hola
-                    </button>
+                    <img id='logo' src={Logo} alt='image-logo' onClick={() => dispatch(getPokemons())}/>
                 </Link>
             </div>
-            <div>
-                    <input className='search' type='text' placeholder='Ingresa el nombre de un Pokemon' value={pokeName} onChange={handleInputChange}>
+            <div className='search'>
+                    <input className='search-input' type='text' placeholder='Ingresa el nombre de un Pokemon' value={pokeName} onChange={handleInputChange}>
                     </input>
-                    <button onClick={handleChange}>Buscar</button>
+                    <button onClick={handleChange} className='button-search'>Buscar</button>
             </div>
         </nav>
     )

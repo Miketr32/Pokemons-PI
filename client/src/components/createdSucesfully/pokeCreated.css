@@ -1,0 +1,30 @@
+.success{
+    background: rgba(255, 255, 255, 0.9);
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    margin-top: 105px;
+    top: -110px;
+    right: 10px;
+}
+
+.success img{
+    max-width: 25%;
+    border-radius: 40px;
+    margin-top:18%;
+    margin-left: 0%;
+}
+
+.success h2 {
+    text-align: center;
+}
+
+.error{
+    background-color: #f7f7f9;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    margin-top: 115px;
+}

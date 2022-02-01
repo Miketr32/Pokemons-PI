@@ -3,6 +3,7 @@ import { getPokemonsDetails } from '../../actions/actions';
 import { useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import NavBar from '../navBar/navBar';
+import Loading from '../loading/loading';
 import './Details.css';
 
 
@@ -18,7 +19,10 @@ export default function PokemonDetail(){
     if(pokesDetails.length === 0){
         return(
             <div>
-                <h4>Cargando</h4>
+                <NavBar />
+                <div>
+                    <Loading />
+                </div>
             </div>
         )
     } 
@@ -26,12 +30,13 @@ export default function PokemonDetail(){
         return (
             <div>
             <NavBar />
+            <div className='detailsBackground'>
             <div className='cardsDetails'>
-                <h3 className='pokeName'>{`Nombre: ${pokesDetails.name}`}</h3> 
-                <div className="pokeImage">
-                <img src={pokesDetails.image} alt={pokesDetails.name} />
-                </div>
                 <div>
+                <h3 className='pokeName'>{pokesDetails.name}</h3> 
+                <img src={pokesDetails.image} alt={pokesDetails.name} className="pokeImage" />
+                </div>
+                <div className='types'>
                 {pokesDetails && pokesDetails.type.map(x => <p key={pokesDetails.id}>{x.name}</p>)}
                 </div>
                 <div className='description'>
@@ -54,12 +59,13 @@ export default function PokemonDetail(){
                         <h4>{`Peso: ${pokesDetails.weight}`}</h4>
                     </div>
                 </div>
-                <div>
+           </div> 
+           <div>
                 <button className='button-home'>
                     <Link to='/home'>Volver al inicio</Link>
                 </button>
                 </div>
-           </div> 
+        </div>
         </div>
         )}}
 
