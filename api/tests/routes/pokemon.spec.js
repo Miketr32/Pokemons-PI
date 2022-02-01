@@ -33,7 +33,7 @@ describe("GET /pokemons/:id", () => {
 
 describe("GET /pokemons?name=", () => {
   it("GET response with 200 if it find a pokemon with the name provided", function () {
-    agent.get("/pokemons?name=charmander").expect(function (res) {
+    agent.get("/pokemons?name=pikachu").expect(function (res) {
       expect(res.status).equal(200);
     });
   });

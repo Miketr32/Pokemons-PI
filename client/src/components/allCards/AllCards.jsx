@@ -45,7 +45,7 @@ export default function AllCards() {
         dispatch(getPokemons());
         dispatch(getPokemonsTypes());
     },[])
-    console.log(pokesFiltered)
+
 
     if(!pokesFiltered){ 
         return(
@@ -66,7 +66,7 @@ export default function AllCards() {
          {pokesFiltered && pokesFiltered.map((p) => (
              <PokeCard 
                 name={p.name}
-                type={p.type}
+                types={p.types}
                 image={p.image}
                 health={p.hp}
                 attack={p.attack}

@@ -25,7 +25,7 @@ export default function NavBar() {
         <nav className='navBar'>
             <div>
                 <Link to={'/home'}>
-                    <img id='logo' src={Logo} alt='image-logo' onClick={() => dispatch(getPokemons())}/>
+                    <img id='logo' src={Logo} alt='image-logo'/>
                 </Link>
             </div>
             <div className='search'>

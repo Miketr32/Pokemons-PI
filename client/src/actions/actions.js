@@ -49,7 +49,7 @@ export function getPokemonsTypes() {
 export function addPokemons(payload) {  
     return async function (dispatch) {
         try{
-            let newPoke = await axios.post('http://localhost:3001/pokemons', payload);
+            var newPoke = await axios.post('http://localhost:3001/pokemons', payload);
             dispatch({
                 type:"ADD_POKEMONS",
                 payload: true     

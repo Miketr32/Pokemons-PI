@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './pokeCard.css';
 
-export default function PokeCard({ id , name, type , image}) {
+export default function PokeCard({ id , name, types , image}) {
     let number = 1;
     return ( 
     <div>
@@ -14,7 +14,7 @@ export default function PokeCard({ id , name, type , image}) {
                     </Link>
                 </div>
                 <div className='pokeCard-type'>
-                    {type && type.map( t => 
+                    {types && types.map( t => 
                     <p className='eachType' key={number++}>{t.name}</p>
                     )}
                 </div>

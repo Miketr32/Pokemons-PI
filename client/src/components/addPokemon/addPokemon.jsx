@@ -26,7 +26,7 @@ export default function NewPokemon() {
 
     useEffect(() => {
         dispatch(getPokemonsTypes())
-    }, [dispatch]) 
+    }, []) 
 
     const handleInputChange = (e) => {
         setInput({ ...input, [e.target.name]: e.target.value});
@@ -53,7 +53,7 @@ export default function NewPokemon() {
     const pokemonCreated = () => {
         setTimeout(() => dispatch(clear()), 4000)
         };
-
+        
         return(
             <div>
             <NavBar />

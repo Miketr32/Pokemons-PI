@@ -13,9 +13,10 @@ router.get('/pokemons', async (req, res) => {
         const pokeByDataBase = await Pokemon.findOne({where: {name: veamos}, include: { model: Types, through:{attributes:[]},attributes:["name"]}}); 
             if(pokeByDataBase){                                                                                                                      
                 let founded = {
+                    id: pokeByDataBase.id,
                     name: pokeByDataBase.name,
                     image: pokeByDataBase.image,
-                    type: pokeByDataBase.types
+                    types: pokeByDataBase.types
                 }
                 return res.status(200).json(founded);
             }
@@ -26,7 +27,7 @@ router.get('/pokemons', async (req, res) => {
                 id: filtro.id,
                 name: filtro.name,
                 image: filtro.sprites.other.home.front_default,
-                type: filtro.types.map(t => { return { name: t.type.name}}),
+                types: filtro.types.map(t => { return { name: t.type.name}}),
                 created: false
             };
             return res.status(200).json(founded);
@@ -36,6 +37,7 @@ router.get('/pokemons', async (req, res) => {
         }
     }
     }
+    const pokeByDataBase = await Pokemon.findAll({include: { model: Types, through:{attributes:[]},attributes:["name"]}}); 
     const datos = await PokemonData();
     let dataFilter = datos.map((d) => {
         let founded = {
@@ -43,12 +45,13 @@ router.get('/pokemons', async (req, res) => {
             name: d.name,
             image: d.sprites.other.home.front_default,
             attack: d.stats[1].base_stat, 
-            type: d.types.map(t => {return  {name:t.type.name}}),
+            types: d.types.map(t => {return  {name:t.type.name}}),
             created: false
         };
         return founded;
     });
-    res.status(200).json(dataFilter); 
+    const allPokeData = [...dataFilter, ...pokeByDataBase]
+    res.status(200).json(allPokeData); 
 });
 
 router.get('/pokemons/:idPokemon', async (req, res) => {
@@ -67,7 +70,7 @@ router.get('/pokemons/:idPokemon', async (req, res) => {
                 name: pokeById.name,
                 id: pokeById.id,
                 image: pokeById.sprites.other.home.front_default,
-                type: pokeById.types.map( t => { return {name: t.type.name}}),
+                types: pokeById.types.map( t => { return {name: t.type.name}}),
                 health: pokeById.stats[0].base_stat,
                 attack: pokeById.stats[1].base_stat,
                 defense: pokeById.stats[2].base_stat,

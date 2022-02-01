@@ -16,17 +16,7 @@ export default function PokemonDetail(){
         dispatch(getPokemonsDetails(id))
     }, []); 
 
-    if(pokesDetails.length === 0){
-        return(
-            <div>
-                <NavBar />
-                <div>
-                    <Loading />
-                </div>
-            </div>
-        )
-    } 
-    else{
+    if(pokesDetails.length !== 0){
         return (
             <div>
             <NavBar />
@@ -37,7 +27,7 @@ export default function PokemonDetail(){
                 <img src={pokesDetails.image} alt={pokesDetails.name} className="pokeImage" />
                 </div>
                 <div className='types'>
-                {pokesDetails && pokesDetails.type.map(x => <p key={pokesDetails.id}>{x.name}</p>)}
+                {pokesDetails && pokesDetails.types.map(x => <p key={pokesDetails.id}>{x.name}</p>)}
                 </div>
                 <div className='description'>
                     <div>
@@ -67,5 +57,16 @@ export default function PokemonDetail(){
                 </div>
         </div>
         </div>
-        )}}
+        )
+    } 
+    else{
+        return(
+            <div>
+                <NavBar />
+                <div>
+                    <Loading />
+                </div>
+            </div>
+        )
+        }}
 

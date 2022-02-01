@@ -6,6 +6,7 @@ const initialState = {
     newPokemons: false   
 };
 
+
 export default function rootReducer(state = initialState, action) {
     switch(action.type){
 
@@ -47,7 +48,7 @@ export default function rootReducer(state = initialState, action) {
         case "ADD_POKEMONS":
             return {
                 ...state,
-                newPokemons: action.payload
+                newPokemons: action.payload,
             };
 
         case "POKE_BY_TYPE":
@@ -111,4 +112,3 @@ export default function rootReducer(state = initialState, action) {
     }
 };
 
-// Modifique los espacios
