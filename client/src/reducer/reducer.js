@@ -52,10 +52,20 @@ export default function rootReducer(state = initialState, action) {
             };
 
         case "POKE_BY_TYPE":
-            return {
-                ...state,
-                pokemonsFilter: state.allPokemons.filter(x => {return x.type.some( t => t.name === action.payload)})
-            };
+            const founded = state.allPokemons.filter(x => {return x.types.some( t => t.name === action.payload)});
+            if(founded.length !== 0){
+                return {
+                    ...state,
+                    pokemonsFilter: founded
+                };
+            }
+            else {
+                return {
+                    ...state,
+                    pokemonsFilter: false
+                }
+            }
+
 
         case "POKE_BY_ORIGIN": 
             const origin = state.allPokemons.filter((x) => {return x.created.toString() === action.payload});
@@ -74,11 +84,13 @@ export default function rootReducer(state = initialState, action) {
             let orderAsce = action.payload === 'Asc' ? state.allPokemons.sort((a,b) =>{
                 if(a.name > b.name) return 1;
                 if(b.name > a.name) return -1;
-                return 0;
-            }): state.allPokemons.sort((a,b) => {
+                return false;
+            }): action.payload === 'Desc' ? state.allPokemons.sort((a,b) => {
                 if(a.name > b.name) return -1;
                 if(b.name > a.name) return 1;
-                return 0;
+                return false;
+            }): state.allPokemons.sort((a,b) => {
+                return a.id - b.id
             });
             return {
                 ...state,
@@ -90,10 +102,12 @@ export default function rootReducer(state = initialState, action) {
                 if(a.attack < b.attack) return 1;
                 if(b.attack < a.attack) return -1;
                 return 0;
-            }): state.allPokemons.sort((a,b) => {
+            }): action.payload === 'forceDesc' ? state.allPokemons.sort((a,b) => {
                 if(a.attack < b.attack) return -1;
                 if(b.attack < a.attack) return 1;
                 return 0;
+            }): state.allPokemons.sort((a,b) => {
+                return a.id - b.id
             });
             return {
                 ...state,
@@ -106,6 +120,12 @@ export default function rootReducer(state = initialState, action) {
             pokemonsFilter: state.allPokemons,
             newPokemons: false,
             };
+
+        case "CLEAR_BY_ID":
+            return{
+                ...state,
+                pokemonsDetails:[]
+            }
 
         default:
             return state;

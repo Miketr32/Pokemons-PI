@@ -17,7 +17,7 @@ export default function FilterBar() {
     
     const orderByType = (e) => {                                        // Filtrado por tipo
         setTypeOrder(e.target.value)
-        if(e.target.value !== 'clearTypes' && e.target.value !== null){ 
+        if(e.target.value !== 'clearTypes'){ 
             dispatch(pokeByType(e.target.value));
         }
         else{
@@ -25,7 +25,7 @@ export default function FilterBar() {
             dispatch(clear())
         }
     };
-    
+
     const orderByOrigin = (e) => {                                     // Filtrado por creador
         setOriginOrder(e.target.value)
         if(e.target.value !== 'clearOrigin'){
@@ -39,29 +39,17 @@ export default function FilterBar() {
 
     const orderByAlph = (e) => {                                       // Filtrado alfabetico
         setSortOrder(e.target.value);
-        if(e.target.value !== "clearAlp"){
-            dispatch(filterAlph(e.target.value));
-        }
-        else{
-            setSortOrder("");
-            dispatch(clear());
-        }
-        
+        dispatch(filterAlph(e.target.value));  
     };
 
     const orderByForce = (e) => {                                     // Filtrado por orden de fuerza
         setSortForce(e.target.value);
-        if(e.target.value !== "clearAt"){
-            dispatch(filterForce(e.target.value))
-        }
-        else{
-            return dispatch(clear());
-        }
+        dispatch(filterForce(e.target.value))
     };
     
     useEffect(() => {
         dispatch(getPokemonsTypes());
-    }, [dispatch]);
+    }, []);
 
     if(!filterBar){
         return (

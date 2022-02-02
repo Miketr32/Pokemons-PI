@@ -49,6 +49,7 @@ export function getPokemonsTypes() {
 export function addPokemons(payload) {  
     return async function (dispatch) {
         try{
+            console.log(payload)
             var newPoke = await axios.post('http://localhost:3001/pokemons', payload);
             dispatch({
                 type:"ADD_POKEMONS",
@@ -94,3 +95,9 @@ export function clear() {
         type: "CLEAR",
     };
 ;}
+
+export function clearById(){
+    return{
+        type: "CLEAR_BY_ID",
+    }
+}

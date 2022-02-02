@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { getPokemonsDetails } from '../../actions/actions';
+import { getPokemonsDetails, clearById } from '../../actions/actions';
 import { useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import NavBar from '../navBar/navBar';
@@ -13,9 +13,9 @@ export default function PokemonDetail(){
     let pokesDetails = useSelector((state) => state.pokemonsDetails);
 
     useEffect(() => {
-        dispatch(getPokemonsDetails(id))
+        dispatch(getPokemonsDetails(id));
+        dispatch(clearById());
     }, []); 
-
     if(pokesDetails.length !== 0){
         return (
             <div>
@@ -27,7 +27,7 @@ export default function PokemonDetail(){
                 <img src={pokesDetails.image} alt={pokesDetails.name} className="pokeImage" />
                 </div>
                 <div className='types'>
-                {pokesDetails && pokesDetails.types.map(x => <p key={pokesDetails.id}>{x.name}</p>)}
+                {pokesDetails.types && pokesDetails.types.map(x => <p key={pokesDetails.id}>{x.name}</p>)}
                 </div>
                 <div className='description'>
                     <div>
@@ -59,7 +59,7 @@ export default function PokemonDetail(){
         </div>
         )
     } 
-    else{
+    else if (!pokesDetails.length){
         return(
             <div>
                 <NavBar />

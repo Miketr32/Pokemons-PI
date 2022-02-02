@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { addPokemons, getPokemonsTypes, clear } from '../../actions/actions';
+import { addPokemons, getPokemonsTypes, clear, getPokemons } from '../../actions/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import validator from './validator';
 import NavBar from '../navBar/navBar.jsx';
@@ -8,8 +8,10 @@ import PokeCreated from '../createdSucesfully/pokeCreated';
 
 export default function NewPokemon() {
     let dispatch = useDispatch();
+    let pokesApi = useSelector((state) => state.allPokemons);
     let pokeTypes = useSelector((state) => state.pokemonsTypes);
     let pokeCreated = useSelector((state) => state.newPokemons);
+
     const [input , setInput ] = useState({
         name: '',
         image: '',
@@ -26,6 +28,7 @@ export default function NewPokemon() {
 
     useEffect(() => {
         dispatch(getPokemonsTypes())
+        dispatch(getPokemons())
     }, []) 
 
     const handleInputChange = (e) => {
@@ -35,6 +38,22 @@ export default function NewPokemon() {
 
     const handleSubmit = (e) => { 
         e.preventDefault();
+        let filtro = pokesApi.filter(x => x.name === input.name)
+        if(filtro.length !==0 ){
+            setInput({
+                name: '',
+                image: '',
+                health: '',
+                attack: '',
+                defense: '',
+                speed: '',
+                height: '',
+                weight: '',
+                type1: '',
+                type2: ''
+            });
+            return alert("Ya existe un pokemon con este nombre");
+        } 
         dispatch(addPokemons(input));
         setInput({
             name: '',
@@ -53,7 +72,7 @@ export default function NewPokemon() {
     const pokemonCreated = () => {
         setTimeout(() => dispatch(clear()), 4000)
         };
-        
+
         return(
             <div>
             <NavBar />
@@ -75,7 +94,7 @@ export default function NewPokemon() {
                 </div>
                 {errors.name && (
                     <div className='errors'>
-                    <div className='namee'>{errors.name}</div>
+                    <div id='namee'>{errors.name}</div>
                     </div>
                     )}
                 <div className='pokemon-params'>
@@ -92,7 +111,7 @@ export default function NewPokemon() {
                 </div>
                 {errors.attack && (
                     <div className='errors'>
-                    <div className='attack'>{errors.attack}</div>
+                    <div id='attack'>{errors.attack}</div>
                     </div>
                     )}
                 <div className='pokemon-params'>
@@ -109,7 +128,7 @@ export default function NewPokemon() {
                 </div>
                 {errors.defense && (
                     <div className='errors'>
-                    <div className='defense'>{errors.defense}</div>
+                    <div id='defense'>{errors.defense}</div>
                     </div>
                     )}
                 <div className='pokemon-params'>
@@ -191,7 +210,7 @@ export default function NewPokemon() {
                             <option value='Primer tipo'>Primer tipo</option>
                             {
                                 pokeTypes.map( x => 
-                                    <option value={x.id} key={x.id}>{x.name}</option>
+                                    <option value={x.name} key={x.id}>{x.name}</option>
                                 )
                             }
                         </select>
@@ -205,7 +224,7 @@ export default function NewPokemon() {
                             <option value='Segundo tipo'>Segundo tipo</option>
                             {
                                 pokeTypes.map( y => 
-                                    <option value={y.id} key={y.id}>{y.name}</option>
+                                    <option value={y.name} key={y.id}>{y.name}</option>
                                 )
                             }
                         </select>
@@ -220,6 +239,11 @@ export default function NewPokemon() {
                     onChange={handleInputChange} >
                     </input>
                 </div>
+                {errors.weight && (
+                    <div className='errors'>
+                    <div className='imageE'>{errors.image}</div>
+                    </div>
+                    )}
                 <div className='square'>
                     {input.image ? (
                         <img

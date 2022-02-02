@@ -7,10 +7,8 @@ import error from '../../Images/error2.gif'
 
 export default function PokeCreated(){
     const created = useSelector((state) => state.newPokemons);
-
     if(created){
     return (
-
         <div className="success">
             <img src={pokecreated}></img>
             <h2>Pokemon creado</h2>

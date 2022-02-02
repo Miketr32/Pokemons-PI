@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getPokemons, getPokemonsNames } from '../../actions/actions';
+import { getPokemonsNames } from '../../actions/actions';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import './navBar.css';

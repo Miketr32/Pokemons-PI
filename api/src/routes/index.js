@@ -50,7 +50,7 @@ router.get('/pokemons', async (req, res) => {
         };
         return founded;
     });
-    const allPokeData = [...dataFilter, ...pokeByDataBase]
+    const allPokeData = [...pokeByDataBase, ...dataFilter]
     res.status(200).json(allPokeData); 
 });
 

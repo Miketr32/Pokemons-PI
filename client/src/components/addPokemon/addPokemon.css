@@ -81,54 +81,66 @@
     font-weight: 500;
     position: absolute;
 }
-.errors .namee{
+ #namee{
+    width: 310px;
+    height: 20px;
+    margin-left: -1.5%;
+    margin-top: 5%;
+    position: fixed;
+}
+ #attack{
+    width: 310px;
+    height: 20px;
+    margin-left: 22%;
+    margin-top: 5%;
+    position: fixed;
+}
+
+ #defense{
+    width: 310px;
+    height: 20px;
+    position: fixed;
+    margin-left: -1.5%;
+    margin-top: 10.9%;
+}
+
+ .health{
+    width: 310px;
+    height: 20px;
+    margin-left: -1.5%;
+    margin-top: 17%;
+    position: fixed;
+}
+
+ .speed{
+    width: 310px;
+    height: 20px;
+    margin-left: 22%;
+    margin-top: 10.9%;
+    position: fixed;
+}
+
+ .height{
+    width: 310px;
+    height: 20px;
+    margin-left: 22%;
+    margin-top: 17%;
+    position: fixed;
+}
+
+ .weight{
     width: 310px;
     height: 20px;
     margin-left: -10%;
-    margin-top: 30%;
+    margin-top: 10%;
 }
-.errors .attack{
-    width: 310px;
-    height: 20px;
-    margin-left: 140%;
-    margin-top: 30%;
-}
-
-.errors .defense{
+.imageE{
     width: 310px;
     height: 20px;
     margin-left: -10%;
-    margin-top: 69%;
+    margin-top: 10%;
+    position:fixed;
 }
-
-.errors .health{
-    width: 310px;
-    height: 20px;
-    margin-left: -10%;
-    margin-top: 107%;
-}
-
-.errors .speed{
-    width: 310px;
-    height: 20px;
-    margin-left: 140%;
-    margin-top: 69%;
-}
-
-.errors .height{
-    width: 310px;
-    height: 20px;
-    margin-left: 140%;
-    margin-top: 107%;
-}
-
-.errors .weight{
-    width: 310px;
-    height: 20px;
-    margin-left: -10%;
-    margin-top: 110%;
-}
-
 .square{
     margin-top: -5%;
     width: 250px;
