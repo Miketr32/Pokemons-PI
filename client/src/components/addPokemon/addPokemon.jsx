@@ -38,7 +38,7 @@ export default function NewPokemon() {
 
     const handleSubmit = (e) => { 
         e.preventDefault();
-        let filtro = pokesApi.filter(x => x.name === input.name)
+        let filtro = pokesApi.filter(x => x.name === input.name.toLowerCase())
         if(filtro.length !==0 ){
             setInput({
                 name: '',
@@ -199,10 +199,11 @@ export default function NewPokemon() {
                     <div className='weight'>{errors.weight}</div>
                     </div>
                     )}
-                <div className='pokemon-types'>
+                <div className='pokemon-params'>
                     <p>Tipos:</p>
                     <div className='option-types'>
                         <select 
+                        className='special-select'
                         value={input.type1} 
                         name='type1' 
                         onChange={handleInputChange} 
@@ -214,8 +215,6 @@ export default function NewPokemon() {
                                 )
                             }
                         </select>
-                    </div>
-                    <div className='option-types'>
                         <select 
                         className='special-select'
                         value={input.type2} 
@@ -254,7 +253,7 @@ export default function NewPokemon() {
                     )}
                 </div>
             </div>
-                {Object.keys(errors).length !==0 ? (
+            {Object.keys(errors).length !==0 ? (
                     <button 
                     disabled='true'
                     onClick={pokemonCreated}
@@ -267,7 +266,6 @@ export default function NewPokemon() {
                 {pokeCreated && <PokeCreated />}
             </form>
             </div>
-            
             </div>
         )
 };

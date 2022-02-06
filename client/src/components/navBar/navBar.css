@@ -14,7 +14,7 @@
     align-items: center;
 }
 
-#logo{
+.logo{
     position: relative;
     width: 50%;
     right: -165%;
@@ -36,9 +36,10 @@
     margin-right: -7%;
 }
 
-
-/* 
-
-Cambiar el boton de buscar por un logo de una lupa 
-
-*/
+@media (max-width : 1250px) {
+    .logo{
+        position: relative;
+        width: 50%;
+        right: -16%;
+    }
+} 

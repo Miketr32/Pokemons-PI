@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getPokemonsNames } from '../../actions/actions';
+import { getPokemonsNames, getPokemons } from '../../actions/actions';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import './navBar.css';
@@ -21,18 +21,21 @@ export default function NavBar() {
         setPokeName('') 
         }};
 
+    const recharge = () => {
+        dispatch(getPokemons())
+    }
     return (
         <nav className='navBar'>
             <div>
                 <Link to={'/home'}>
-                    <img id='logo' src={Logo} alt='image-logo'/>
+                    <img className='logo' src={Logo} alt='logo' onClick={recharge}/>
                 </Link>
             </div>
-            <div className='search'>
+            <form className='search'>
                     <input className='search-input' type='text' placeholder='Ingresa el nombre de un Pokemon' value={pokeName} onChange={handleInputChange}>
                     </input>
                     <button onClick={handleChange} className='button-search'>Buscar</button>
-            </div>
+            </form>
         </nav>
     )
 };

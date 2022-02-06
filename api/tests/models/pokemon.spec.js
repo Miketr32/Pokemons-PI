@@ -21,17 +21,6 @@ describe('Pokemon model', () => {
     });
   });
 
-  describe("Types", () => {
-    it('should throw an error if name is null', (done) => {
-      Type.create({})
-      .then(() => done(new Error('It requires a valid name')))
-      .catch(() => done());
-    });
-    it('should work when its a valid name', () => {
-      Type.create({name: 'normal'})
-    });
-  });
-
   describe('image', () => {
     it('should throw an error if image is null', (done) => {
       Pokemon.create({})

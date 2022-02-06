@@ -27,11 +27,11 @@ export default function validator(entrada) {           // Funcion validadora par
         errors.height = "El valor no puede ser menor a 0 ni mayor a 350 "
     }
 
-    if(!entrada.weight < 0 || entrada.weight > 350){
+    if(entrada.weight < 0 || entrada.weight > 350){
         errors.weight = "El valor no puede ser menor a 0 ni mayor a 350 "
     }
 
-    if(!validation.test(entrada.image)) {
+    if(entrada.image && !validation.test(entrada.image)) {
         errors.image = 'Debes ingresar una URL valida'
     }
     return errors;

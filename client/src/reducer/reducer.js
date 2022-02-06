@@ -25,7 +25,7 @@ export default function rootReducer(state = initialState, action) {
 
         case "GET_POKEMONS_NAMES":
             const nameSearched = state.allPokemons.filter((x) => {
-                return x.name.includes(action.payload)
+                return x.name === action.payload
             });
             if(nameSearched.length !== 0){
             return {

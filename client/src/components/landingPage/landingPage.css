@@ -1,7 +1,7 @@
 .home-button{
-    position: relative;
+    position: absolute;
     left: 45%;
-    margin-top: 27%;
+    top:57%;
     border:none;
     box-shadow: none;
     line-height: 47px;
@@ -96,7 +96,7 @@
     }
   }
 .landing h1{
-    color: #fff;
+  color: #fff;
 	font-size: 50px;
 	font-weight: 700;
 	font-family: "Josefin Sans", sans-serif;
@@ -109,9 +109,10 @@
 	-webkit-text-fill-color: transparent;
 	animation: textclip 3s linear infinite;
 	text-align: center;
-    position: absolute;
-    top: 38%;
-    right: 42%;
+  position: absolute;
+  top: 38%;
+  bottom:38%;
+  right: 42%;
 }
 
 @keyframes textclip {
@@ -143,5 +144,23 @@
   }
   100%{
     opacity: 1;
+  }
+}
+
+@media (max-width : 1250px) {
+  .home-button{
+    left: 33%;
+  }
+}
+
+@media (max-width : 800px) {
+  .landing h1{
+    font-size: 50px;
+    font-weight: 700;
+    text-align: center;
+    position: fixed;
+    margin-top: 8%;
+    margin-left: 33%;
+    margin-right: -9%;
   }
 }

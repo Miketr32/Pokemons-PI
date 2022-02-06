@@ -26,7 +26,7 @@
 
 .filterBar{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding-top: 30px;
     padding-bottom: 20px;
 }
@@ -36,8 +36,6 @@
     height: 33px;
     border-radius: 10px;
     border: blue solid 2px;
-    margin-left: 100px;
-    margin-right: 100px;
     font-size: 14px;
     font-weight: bold;
 }
@@ -46,11 +44,35 @@
     font-weight: bold;
 }
 
-/* 
-Aca me faltaria ====>
+@media (max-width : 1250px){
+    .select{
+        width: 200px;
+        height: 33px;
+        border-radius: 10px;
+        border: blue solid 2px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+}
 
-1) Cambiar el borde de los select
-
-2) Ver que las options esten bien
-
-*/
+@media (max-width : 800px) {
+    .filterBar{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr ;
+        grid-gap: 15px 0px;
+        padding-top: 30px;
+        padding-bottom: 20px;
+    }
+    
+    .select{
+        width: 200px;
+        height: 33px;
+        border-radius: 10px;
+        border: blue solid 2px;
+        font-size: 14px;
+        font-weight: bold;
+        margin-left: 18%;
+    }
+    
+}

@@ -14,7 +14,7 @@ describe('AddPokemon', () => {
         expect(element.type).toBe('text');
       });
   
-      it('The form shpuld have a input with a entry for text and image', () => {
+      it('The form should have a input with a entry for text and image', () => {
         const { container } = render(<Provider store={store}> <BrowserRouter><App/><NewPokemon/></BrowserRouter></Provider>)
         const element = container.querySelectorAll('input')[1]
         expect(element.type).toBe('text');

@@ -10,14 +10,14 @@ export default function PokeCreated(){
     if(created){
     return (
         <div className="success">
-            <img src={pokecreated}></img>
+            <img src={pokecreated} alt='created-poke'></img>
             <h2>Pokemon creado</h2>
         </div>
 
     )} else{
         return(
                 <div className="error">
-                    <img src={error}></img>
+                    <img src={error} alt='error-poke'></img>
                     <h2>Algo salio mal!</h2>
                 </div>
         )

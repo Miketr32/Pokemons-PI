@@ -37,7 +37,18 @@ export default function AllCards() {
         window.scrollTo({top: 0, behavior: 'smooth'});
     };
 
+    const begin = () => {
+        setCountPoke(1);
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    const end = () => {
+        setCountPoke(pages)
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
     if(countPoke > pages) {
+        console.log('hola')
         back();
     }
 
@@ -78,9 +89,11 @@ export default function AllCards() {
          ))}
          </div>
             <div className="pagination">
+                <button onClick={begin} className='pagination-button b'>{'<'}</button>
                 <button onClick={back} className="pagination-button a">Anterior</button>
                 <p>{countPoke} / {pages}</p>
                 <button onClick={next} className="pagination-button p">Proximo</button>
+                <button onClick={end} className='pagination-button e'>{'>'}</button>
             </div>
         </div>
     )}

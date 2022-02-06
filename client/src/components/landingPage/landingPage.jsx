@@ -20,7 +20,7 @@ export default function LandingPage(){
             </button>
         </Link>
         <div>
-            <img className="imagen" src={welcome}></img>
+            <img className="imagen" src={welcome} alt='landing-welcome'></img>
         </div>
         </div>
     )

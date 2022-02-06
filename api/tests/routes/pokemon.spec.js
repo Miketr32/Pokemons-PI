@@ -42,7 +42,7 @@ describe("GET /pokemons?name=", () => {
 describe("GET /types", () => {
   it("GET response with 200 if it finds all the types of pokemon", function () {
     agent.get("/types").expect(function (res) {
-      expect(res.status).equal(2000);
+      expect(res.status).equal(200);
     });
   });
 });

@@ -18,9 +18,9 @@ export default function PokemonDetail(){
     }, []); 
     if(pokesDetails.length !== 0){
         return (
-            <div>
-            <NavBar />
             <div className='detailsBackground'>
+            <NavBar />
+            <div>
             <div className='cardsDetails'>
                 <div>
                 <h3 className='pokeName'>{pokesDetails.name}</h3> 
