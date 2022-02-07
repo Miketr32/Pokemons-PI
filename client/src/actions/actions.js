@@ -3,7 +3,7 @@ import axios from 'axios';
 export function getPokemons() {
     return async function (dispatch) {
         try {
-        let allPokes =  await axios.get(`http://localhost:3001/pokemons`)
+        let allPokes =  await axios.get(`https://pipokemons.herokuapp.com/pokemons`)
             dispatch({
                 type: "GET_POKEMONS",
                 payload: allPokes.data
@@ -15,7 +15,7 @@ export function getPokemons() {
 export function getPokemonsDetails(id) { 
     return async function (dispatch) {
         try {
-        let pokeDetail = await axios.get(`http://localhost:3001/pokemons/${id}`);
+        let pokeDetail = await axios.get(`https://pipokemons.herokuapp.com/pokemons/${id}`);
             dispatch({
                 type: "GET_POKEMONS_DETAILS",
                 payload: pokeDetail.data    
@@ -36,7 +36,7 @@ export function getPokemonsNames(payload) {
 export function getPokemonsTypes() {
     return async function (dispatch) {
         try{
-        const pokeType = await axios.get('http://localhost:3001/types');
+        const pokeType = await axios.get('https://pipokemons.herokuapp.com/types');
             dispatch({
                 type: "GET_POKEMONS_TYPES",
                 payload: pokeType.data
@@ -50,7 +50,7 @@ export function addPokemons(payload) {
     return async function (dispatch) {
         try{
             console.log(payload)
-            var newPoke = await axios.post('http://localhost:3001/pokemons', payload);
+            var newPoke = await axios.post('https://pipokemons.herokuapp.com/pokemons', payload);
             dispatch({
                 type:"ADD_POKEMONS",
                 payload: true     
