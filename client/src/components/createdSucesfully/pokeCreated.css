@@ -28,3 +28,12 @@
     position: fixed;
     margin-top: 115px;
 }
+
+@media (max-width : 450px) {
+    .success{
+        right: 0px;
+    }
+    .success img{
+        margin-top:58%;
+    }
+}

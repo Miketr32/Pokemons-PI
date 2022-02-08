@@ -16,6 +16,9 @@
       box-shadow: 2px 2px .4em rgb(168, 166, 166), -1px 0 .4em rgb(223, 223, 223);
 }
 
+.pokeCard:hover {
+  box-shadow: 4px 4px .6em rgb(228, 225, 225), -0px 0 .6em rgb(241, 240, 240);
+}
 
 .name{
     font-size: 25px;
@@ -50,8 +53,16 @@
     box-shadow: 2px 2px .4em rgb(168, 166, 166), -1px 0 .4em rgb(223, 223, 223);
 }
 
+@media (max-width : 450px) {
+  .pokeCard{
+    border-radius: 10%;
+    max-width: 290px;
+    max-height: 450px;
+}
 
-/* 
-Aca faltaria agregar un hover para cada card
+.pokeCard-image{
+    max-height: 200px;
+    max-width: 200px;
+}
 
-*/ 
+}

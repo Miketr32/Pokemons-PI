@@ -87,3 +87,65 @@
     margin-left: 41%;
     margin-top: 1%;
 }
+
+@media (max-width : 1250px) {
+
+.notFound img{
+    margin-left: 18%;
+    margin-top: 10%;
+}
+
+.notFound-title{
+    margin-left: 21%;
+}
+
+.back{
+  margin-left: 31%;
+}
+}
+
+@media (max-width : 800px) {
+  .notFound{
+    margin-top: 105px;
+}
+
+.notFound img{
+    margin-left: 18%;
+    margin-top: 18%;
+    width: 500px;
+}
+
+.notFound-title{
+    font-size: 18px;
+    margin-left: 21%;
+}
+
+.back{
+  margin-left: 31%;
+}
+}
+
+@media (max-width : 450px) {
+  .notFound{
+    margin-top: 45px;
+}
+
+.notFound img{
+    margin-left: 18%;
+    margin-top: 45%;
+    width: 250px;
+}
+
+.notFound-title{
+    font-size: 10px;
+    width: 265px;
+    margin-left: 19%;
+}
+
+.back{
+    padding: 5px 10px 5px 10px;
+    width: 200px;
+    margin-left: 22%;
+    margin-top: 1%;
+}
+}

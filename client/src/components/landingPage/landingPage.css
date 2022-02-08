@@ -7,6 +7,7 @@
     line-height: 47px;
     font-weight: bold;
     font-size: 15px;
+    padding: 0px;
 }
 
 .home-button span {
@@ -162,5 +163,27 @@
     margin-top: 8%;
     margin-left: 33%;
     margin-right: -9%;
+  }
+}
+
+@media (max-width : 450px) {
+  .landing h1{
+    font-size: 35px;
+    font-weight: 700;
+    text-align: center;
+    position: fixed;
+    margin-top: 8%;
+    margin-left: 38%;
+    margin-right: -20%;
+  }
+
+  .home-button{
+    left: 24%;
+    padding: 0px;
+  }
+
+  .imagen{
+    width: 60%;
+    right: 5%;
   }
 }

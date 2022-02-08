@@ -76,3 +76,27 @@
     }
     
 }
+
+@media (max-width : 450px) {
+    .centerBar {
+        padding-top: 50px;
+    }
+    
+    .centerBar button{
+        padding: 5px 10px 5px 10px;
+    }
+    
+    .Filter{
+        margin-left: 20px;
+    }
+
+    .filterBar{
+        padding-top: 10px;
+    }
+
+    .select{
+        width: 120px;
+        height: 33px;
+        font-size: 12px;
+    }
+}

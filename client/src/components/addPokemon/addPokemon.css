@@ -238,3 +238,101 @@ img{
     }
 }
 
+@media (max-width : 450px) {
+    .form-container{
+        margin-top: 50px;
+    }
+
+    .create-pokemon h2{
+        font-size: 18px;
+    }
+    
+    .form  {
+        grid-row-gap: 13px;
+    }
+    
+    .pokemon-image{
+        margin-top: 0%;
+    }
+    .pokemon-params p {
+        font-size: 13.5px;
+    }
+
+    .pokemon-params input{
+        width: 100px;
+        height: 20px;
+        font-size: 12px;
+    }
+    
+    .special-select{
+        width: 80px;
+        height: 24px;
+        font-size: 12px;
+    }
+    
+    .submit-pokemon{
+        padding: 10px 24px 10px 24px;
+        margin-left: -75px;
+        margin-top: 70px;
+    }
+    .submit-pokemon-error{
+        padding: 10px 24px 10px 24px;
+        margin-top: 70px;
+        margin-left: -75px;
+    }
+    .errors{
+        font-size: 10px;
+        margin-left: 0px;
+    }
+  
+    .square img{
+        max-width: 200px;
+        max-height: 100px;
+    }
+
+    #namee{
+        margin-left: -23%;
+        margin-top: 20%;
+    }
+     #attack{
+        width: 120px;
+        margin-left: 43%;
+        margin-top: 20%;
+    }
+    
+     #defense{
+        width: 120px;
+        margin-left: 2%;
+        margin-top: 43%;
+    }
+    
+     .health{
+        width: 120px;
+        margin-left: 2%;
+        margin-top: 66%;
+    }
+    
+     .speed{
+        width: 120px;
+        margin-left: 43%;
+        margin-top: 43%;
+    }
+    
+     .height{
+        width: 120px;
+        margin-left: 43%;
+        margin-top: 66%;
+    }
+
+    .weight{
+        width: 120px;
+        margin-left: 2%;
+        margin-top: 89%;
+        position: fixed;
+    }
+    .imageE{
+        width: 310px;
+        margin-left: -22%;
+        margin-top: 113%;
+    }
+}
