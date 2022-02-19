@@ -37,13 +37,13 @@ La idea general fue crear una aplicación en la cual se puedan ver los distintos
   - Crear nuevos pokemons
 
 
-#### Tecnologías utilizadas:
+## Tecnologías utilizadas:
 - [ ] React
 - [ ] Redux
 - [ ] Express
 - [ ] Sequelize - Postgres
 
-#### Frontend
+## Frontend
 
 __Pagina inicial__: 
 - [ ] Imagen de fondo representativa al proyecto
@@ -66,7 +66,7 @@ __Ruta de creación__:
 - [ ] Posibilidad de seleccionar/agregar más de un tipo de Pokemon
 - [ ] Botón/Opción para crear un nuevo Pokemon
 
-#### Base de datos
+## Base de datos
 - [ ] Se almacenan los datos con las siguientes propiedades:
   - ID (Número de Pokemon)
   - Nombre
@@ -80,7 +80,7 @@ __Ruta de creación__:
   - ID
   - Nombre
   - 
-#### Backend
+## Backend
 
 - [ ] __GET /pokemons__:
   - Obtiene un listado de los pokemons desde pokeapi.
@@ -99,6 +99,6 @@ __Ruta de creación__:
   - En una primera instancia trae los datos desde pokeapi y los guarda en la base de datos, luego son utilizados desde allí.
 
 
-#### Testing
+## Testing
 Para el testing se utilizo Jest.
 
