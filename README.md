@@ -5,7 +5,18 @@
   <img height="150" src="./pokemon.png" />
 </p>
 
-## Comenzando
+## Tabla de contenidos :scroll:
+- [Comenzando](#comenzando-bookmark)
+- [Enunciado](#getting-started-dart)
+- [Estructura de las carpetas](#folder-structure-open_file_folder)
+- [Paquetes utilizados](#packages-used-package)
+- [APIs utilizadas](#apis-used-world_map)
+- [Fuentes e imagenes](#fonts-and-images-performing_arts)
+
+<br />
+
+
+## Comenzando 🔖
 
  1. Forkear el repositorio
  2. Clonar el repositorio
