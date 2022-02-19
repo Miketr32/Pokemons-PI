@@ -6,17 +6,19 @@
 </p>
 
 ## Tabla de contenidos :scroll:
-- [Comenzando](#comenzando-bookmark)
-- [Enunciado](#getting-started-dart)
-- [Estructura de las carpetas](#folder-structure-open_file_folder)
-- [Paquetes utilizados](#packages-used-package)
-- [APIs utilizadas](#apis-used-world_map)
-- [Fuentes e imagenes](#fonts-and-images-performing_arts)
+- [Comenzando](#comenzando)
+- [Enunciado](#enunciado-dart)
+- [Estructura de las carpetas](#estructura-de-las-carpetas-open_file_folder)
+- [Tecnologias utilizadas](#tecnologias-utilizadas-package)
+- [Frontend](#frontend-world_map)
+- [Base de datos](#base-de-datos-performing_arts)
+- [Backend](#backend)
+- [Testing](#testing)
 
 <br />
 
 
-## Comenzando 🔖
+## Comenzando
 
  1. Forkear el repositorio
  2. Clonar el repositorio
