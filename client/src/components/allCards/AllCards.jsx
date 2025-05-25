@@ -48,7 +48,6 @@ export default function AllCards() {
     }
 
     if(countPoke > pages) {
-        console.log('hola')
         back();
     }
 

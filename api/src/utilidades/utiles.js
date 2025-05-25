@@ -3,7 +3,7 @@ const { Pokemon , Types } = require('../db');
 
 //   Funcion que trae los datos de los Pokemones  // 
 
-async function PokemonData() {
+export async function PokemonData() {
     const poke20 = await axios.get('https://pokeapi.co/api/v2/pokemon'); // Traigo los primeros 20 Pokemones
     const poke40 = await axios.get(poke20.data.next);                    // Traigo 20 Pokemones mas
     const allData = [...poke20.data.results, ...poke40.data.results];
